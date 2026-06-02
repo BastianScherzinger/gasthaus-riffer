@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ service.title }} – Flügel Haus & Gebäudeservice{% endblock %}
+{% block meta_desc %}{{ service.hero_text }} Kostenlose Anfrage – direkt aus Grasellenbach.{% endblock %}
+{% block meta_keywords %}{{ service.title }}, {{ service.category }} Grasellenbach, {{ service.category }} Odenwald, Flügel Gebäudeservice{% endblock %}
+{% block og_title %}{{ service.title }} – Flügel Haus & Gebäudeservice{% endblock %}
+{% block og_desc %}{{ service.hero_text }} Jetzt kostenloses Angebot anfordern.{% endblock %}
+
+{% block extra_jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Start", "item": "https://www.hg-fluegel.de/"},
+    {"@type": "ListItem", "position": 2, "name": "Leistungen", "item": "https://www.hg-fluegel.de/leistungen/"},
+    {"@type": "ListItem", "position": 3, "name": "{{ service.category }}", "item": "https://www.hg-fluegel.de{{ request.path }}"}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- ── Compact Hero ──────────────────────────────────────── -->
+<section class="sd-hero">
+  <img src="{% static 'images/' %}{{ service.image }}"
+       alt="{{ service.title }}"
+       class="sd-hero-img"
+       fetchpriority="high" loading="eager" decoding="sync">
+  <div class="sd-hero-overlay"></div>
+  <div class="container sd-hero-content">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb sd-breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Start</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'services' %}">Leistungen</a></li>
+        <li class="breadcrumb-item active">{{ service.category }}</li>
+      </ol>
+    </nav>
+    <div class="sd-hero-label">{{ service.category }}</div>
+    <h1 class="sd-hero-title">{{ service.title }}</h1>
+    <p class="sd-hero-sub">{{ service.hero_text }}</p>
+    <!-- Inline CTA -->
+    <div class="sd-hero-ctas">
+      <a href="{% url 'contact' %}" class="btn-gold">
+        <i class="bi bi-envelope-fill"></i> Jetzt anfragen
+      </a>
+      <a href="tel:{{ phone_tel }}" class="sd-hero-phone">
+        <i class="bi bi-telephone-fill"></i> {{ phone_display }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Quick Contact Strip ───────────────────────────────── -->
+<div class="sd-strip">
+  <div class="container">
+    <div class="sd-strip-inner">
+      <div class="sd-strip-item">
+        <i class="bi bi-shield-fill-check"></i>
+        <span>Voll versichert</span>
+      </div>
+      <div class="sd-strip-divider"></div>
+      <div class="sd-strip-item">
+        <i class="bi bi-clock-fill"></i>
+        <span>Mo–Sa 07–17 Uhr</span>
+      </div>
+      <div class="sd-strip-divider"></div>
+      <div class="sd-strip-item">
+        <i class="bi bi-geo-alt-fill"></i>
+        <span>Grasellenbach & Umgebung</span>
+      </div>
+      <div class="sd-strip-divider d-none d-md-block"></div>
+      <a href="tel:{{ phone_tel }}" class="sd-strip-cta d-none d-md-flex">
+        <i class="bi bi-telephone-fill"></i>
+        Direkt anrufen: {{ phone_display }}
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── Service Cards Grid ────────────────────────────────── -->
+<section class="sd-cards-section">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <div class="section-label mb-2">Was wir leisten</div>
+      <h2 class="section-title">Unser Angebot im Überblick</h2>
+    </div>
+
+    <div class="row g-3">
+      {% for sec in service.sections %}
+      <div class="col-sm-6 col-lg-3">
+        <div class="sd-card">
+          <div class="sd-card-icon">
+            <i class="bi {{ sec.icon }}"></i>
+          </div>
+          <h3 class="sd-card-title">{{ sec.title }}</h3>
+          {% if sec.items %}
+          <ul class="sd-card-list">
+            {% for item in sec.items %}
+            <li><i class="bi bi-check2"></i>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Advantages + CTA ──────────────────────────────────── -->
+<section class="sd-bottom-section">
+  <div class="container">
+    <div class="row g-4 align-items-stretch">
+
+      <!-- Advantages -->
+      {% if service.advantages %}
+      <div class="col-lg-7">
+        <div class="sd-adv-card">
+          <div class="sd-adv-header">
+            <i class="bi bi-award-fill"></i>
+            <span>Ihre Vorteile</span>
+          </div>
+          <div class="sd-adv-list">
+            {% for adv in service.advantages %}
+            <div class="sd-adv-item">
+              <i class="bi bi-check-circle-fill"></i>
+              {{ adv }}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- CTA Card -->
+      <div class="col-lg-5">
+        <div class="sd-contact-card">
+          <div class="sd-contact-icon"><i class="bi bi-chat-dots-fill"></i></div>
+          <h3 class="sd-contact-title">Kostenlos anfragen</h3>
+          <p class="sd-contact-sub">Schnelle Antwort – wir melden uns innerhalb von 24 Stunden.</p>
+          <a href="{% url 'contact' %}" class="btn-gold" style="width:100%;justify-content:center;margin-bottom:.9rem;">
+            <i class="bi bi-envelope-fill"></i>
+            Anfrage senden
+          </a>
+          <a href="tel:{{ phone_tel }}" class="sd-tel-btn">
+            <i class="bi bi-telephone-fill"></i>
+            {{ phone_display }}
+          </a>
+          <a href="https://wa.me/{{ phone_wa }}" target="_blank" rel="noopener" class="sd-wa-btn">
+            <i class="bi bi-whatsapp"></i>
+            WhatsApp schreiben
+          </a>
+          <div class="sd-back-link">
+            <a href="{% url 'home' %}"><i class="bi bi-arrow-left"></i> Zurück zur Startseite</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

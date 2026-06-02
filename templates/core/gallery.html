@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Galerie – Flügel Haus & Gebäudeservice{% endblock %}
+{% block meta_desc %}Bilder unserer Arbeit: Reinigung, Gartenpflege, Winterdienst und mehr – Einblicke in die Leistungen von Flügel Haus & Gebäudeservice.{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container position-relative">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+        <li class="breadcrumb-item active">Galerie</li>
+      </ol>
+    </nav>
+    <div class="section-label mb-2" style="color:var(--gold-light);">Unsere Arbeit</div>
+    <h1>Referenzen & Galerie</h1>
+    <p class="mt-3">Einblicke in unsere geleistete Arbeit – Bilder sagen mehr als tausend Worte.</p>
+  </div>
+</div>
+
+<section class="gallery-page">
+  <div class="container">
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons mb-5 fade-up">
+      <a href="{% url 'gallery' %}"
+         class="filter-btn {% if not active_category %}active{% endif %}">
+        Alle Leistungen
+      </a>
+      {% for cat_key, cat_label in categories %}
+      <a href="{% url 'gallery' %}?cat={{ cat_key }}"
+         class="filter-btn {% if active_category == cat_key %}active{% endif %}">
+        {{ cat_label }}
+      </a>
+      {% endfor %}
+    </div>
+
+    {% if images %}
+    <!-- Gallery Grid with real images -->
+    <div class="gallery-grid fade-up">
+      {% for img in images %}
+      <div class="gallery-item" data-category="{{ img.category }}">
+        <img src="{{ img.image.url }}" alt="{{ img.title }}" loading="lazy">
+        <div class="gallery-item-overlay">
+          <div>
+            <div class="gallery-item-title">{{ img.title }}</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.65);margin-top:.2rem;">{{ img.get_category_display }}</div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% else %}
+    <!-- Placeholder Grid (Bilder werden später eingefügt) -->
+    <div class="mb-4 fade-up">
+      <div style="background:linear-gradient(135deg,var(--gold-pale),#fff8e8);border:1px solid rgba(200,151,42,.25);border-radius:var(--radius-md);padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem;">
+        <i class="bi bi-info-circle-fill" style="color:var(--gold);font-size:1.3rem;flex-shrink:0;"></i>
+        <div>
+          <strong style="color:var(--navy-dark);font-size:.9rem;">Bilder werden bald eingefügt</strong>
+          <div style="font-size:.82rem;color:var(--text-muted);margin-top:.15rem;">
+            Die Galerie ist bereits vorbereitet. Bilder können im Admin-Bereich hochgeladen werden.
+          </div>
+        </div>
+        {% if user.is_staff %}
+        <a href="/admin/core/galleryimage/add/" class="btn-gold ms-auto" style="font-size:.78rem;padding:.5rem 1rem;white-space:nowrap;">
+          <i class="bi bi-plus-circle"></i> Bild hinzufügen
+        </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="gallery-grid fade-up">
+
+      <div class="gallery-item" data-category="reinigung">
+        <img src="{% static 'images/gebäudereinigung.jpg' %}" alt="Gebäudereinigung" style="width:100%;height:100%;object-fit:cover;">
+        <div class="gallery-item-overlay"><div><div class="gallery-item-title">Gebäudereinigung</div></div></div>
+      </div>
+
+      <div class="gallery-item" data-category="reinigung">
+        <img src="{% static 'images/glasreiniger.jpg' %}" alt="Glasreinigung" style="width:100%;height:100%;object-fit:cover;">
+        <div class="gallery-item-overlay"><div><div class="gallery-item-title">Glasreinigung</div></div></div>
+      </div>
+
+      <div class="gallery-item" data-category="garten">
+        <img src="{% static 'images/heckenschnitt.jpg' %}" alt="Heckenschnitt" style="width:100%;height:100%;object-fit:cover;">
+        <div class="gallery-item-overlay"><div><div class="gallery-item-title">Heckenschnitt</div></div></div>
+      </div>
+
+      <div class="gallery-item" data-category="garten">
+        <img src="{% static 'images/galabau.jpg' %}" alt="Gala-Bau" style="width:100%;height:100%;object-fit:cover;">
+        <div class="gallery-item-overlay"><div><div class="gallery-item-title">Gala-Bau</div></div></div>
+      </div>
+
+      <div class="gallery-item" data-category="winterdienst">
+        <img src="{% static 'images/winterdienst.jpg' %}" alt="Winterdienst" style="width:100%;height:100%;object-fit:cover;">
+        <div class="gallery-item-overlay"><div><div class="gallery-item-title">Winterdienst</div></div></div>
+      </div>
+
+      <div class="gallery-item" data-category="sonstiges">
+        <img src="{% static 'images/ich.jpeg' %}" alt="Unser Team" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+        <div class="gallery-item-overlay"><div><div class="gallery-item-title">Unser Team</div></div></div>
+      </div>
+
+    </div>
+    {% endif %}
+
+    <!-- Info Section -->
+    <div class="row g-4 mt-5 fade-up">
+      <div class="col-md-4">
+        <div class="why-card" style="background:var(--white);border-color:var(--border);">
+          <div class="why-icon" style="background:linear-gradient(135deg,var(--navy),var(--navy-light));"><i class="bi bi-camera-fill" style="color:var(--white);"></i></div>
+          <h5 style="color:var(--navy-dark);">Eigene Fotos</h5>
+          <p style="color:var(--text-muted);">Bilder aus echten Aufträgen – transparent und authentisch. Keine Stockfotos.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="why-card" style="background:var(--white);border-color:var(--border);">
+          <div class="why-icon" style="background:linear-gradient(135deg,var(--navy),var(--navy-light));"><i class="bi bi-award-fill" style="color:var(--white);"></i></div>
+          <h5 style="color:var(--navy-dark);">Qualitätsarbeit</h5>
+          <p style="color:var(--text-muted);">Jedes Bild zeigt echte, abgeschlossene Aufträge in höchster Qualität.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="why-card" style="background:var(--white);border-color:var(--border);">
+          <div class="why-icon" style="background:linear-gradient(135deg,var(--navy),var(--navy-light));"><i class="bi bi-chat-dots-fill" style="color:var(--white);"></i></div>
+          <h5 style="color:var(--navy-dark);">Referenzauftrag?</h5>
+          <p style="color:var(--text-muted);">Interessiert an einem ähnlichen Auftrag? Kontaktieren Sie uns direkt.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5 fade-up">
+      <a href="{% url 'contact' %}" class="btn-gold" style="font-size:1rem;padding:1rem 2.5rem;">
+        <i class="bi bi-envelope-fill"></i>
+        Ähnliches Projekt anfragen
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% load static %}
+<footer>
+  <div class="footer-top-bar"></div>
+
+  <div class="footer-body">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Brand -->
+        <div class="col-lg-4 col-md-12">
+          <a href="{% url 'home' %}">
+            <img src="{% static 'images/logofrontpage.png' %}" alt="Flügel Haus & Gebäudeservice"
+                 style="height:72px;width:auto;object-fit:contain;margin-bottom:1rem;display:block;"
+                 loading="lazy" decoding="async">
+          </a>
+          <p class="footer-desc">
+            Ihr zuverlässiger Partner für Gebäudereinigung, Gartenpflege,
+            Winterdienst und mehr – alles aus einer Hand, direkt aus Grasellenbach.
+          </p>
+          <div class="social-links">
+            <a href="https://wa.me/{{ phone_wa }}" class="social-link" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Leistungen + Navigation -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <h5>Leistungen</h5>
+          <a href="{% url 'service_detail' 'reinigung' %}" class="footer-link">Gebäudereinigung</a>
+          <a href="{% url 'service_detail' 'garten' %}" class="footer-link">Gartenpflege</a>
+          <a href="{% url 'service_detail' 'winterdienst' %}" class="footer-link">Winterdienst</a>
+          <a href="{% url 'service_detail' 'steinreinigung' %}" class="footer-link">Steinreinigung</a>
+          <a href="{% url 'service_detail' 'weitere' %}" class="footer-link">Weitere Leistungen</a>
+          <a href="{% url 'services' %}" class="footer-link" style="color:var(--gold);margin-top:.4rem;">
+            Alle Leistungen →
+          </a>
+        </div>
+
+        <div class="col-6 col-lg-2 col-md-3">
+          <h5>Navigation</h5>
+          <a href="{% url 'home' %}"       class="footer-link">Startseite</a>
+          <a href="{% url 'about' %}"      class="footer-link">Über Uns</a>
+          <a href="{% url 'contact' %}"    class="footer-link">Kontakt</a>
+          <a href="{% url 'impressum' %}"  class="footer-link">Impressum</a>
+          <a href="{% url 'datenschutz' %}" class="footer-link">Datenschutz</a>
+        </div>
+
+        <!-- Kontakt + Öffnungszeiten -->
+        <div class="col-md-6 col-lg-4">
+          <h5>Kontakt & Öffnungszeiten</h5>
+
+          <div class="footer-contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <a href="tel:{{ phone_tel }}">{{ phone_display }}</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <a href="https://maps.google.com/?q=Kremberg+1,64689+Grasellenbach" target="_blank" rel="noopener">
+              Kremberg 1, 64689 Grasellenbach
+            </a>
+          </div>
+
+          <div class="footer-hours">
+            <div class="footer-hours-row">
+              <span>Mo – Sa</span><span class="val">07:00 – 17:00</span>
+            </div>
+            <div class="footer-hours-row">
+              <span>Sonntag</span><span class="val">09:00 – 14:00</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© {{ "now"|date:"Y" }} Flügel Haus & Gebäudeservice – Alle Rechte vorbehalten.</span>
+      <div class="footer-bottom-links">
+        <a href="{% url 'impressum' %}">Impressum</a>
+        <a href="{% url 'datenschutz' %}">Datenschutz</a>
+      </div>
+      <a href="#" class="footer-back-top" aria-label="Zum Seitenanfang" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        <i class="bi bi-arrow-up"></i>
+      </a>
+    </div>
+  </div>
+</footer>

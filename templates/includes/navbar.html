@@ -1,0 +1,45 @@
+{% load static %}
+<nav class="navbar-main" id="mainNavbar">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between w-100">
+
+      <!-- Brand -->
+      <a href="{% url 'home' %}" class="d-flex align-items-center gap-3 text-decoration-none">
+        <img src="{% static 'images/logofrontpage.png' %}" alt="Flügel Haus & Gebäudeservice Logo"
+             style="height:46px;width:auto;border-radius:8px;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35));">
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a href="{% url 'home' %}"       class="nav-link-custom">Home</a>
+        <a href="{% url 'services' %}"   class="nav-link-custom">Leistungen</a>
+        <a href="{% url 'galerie' %}"    class="nav-link-custom">Galerie</a>
+        <a href="{% url 'about' %}"      class="nav-link-custom">Über Uns</a>
+        <a href="{% url 'contact' %}"    class="nav-link-custom ms-2 nav-cta">
+          <i class="bi bi-envelope-fill me-1"></i>Anfrage senden
+        </a>
+      </div>
+
+      <!-- Mobile Toggler -->
+      <button class="navbar-toggler d-lg-none border-0" type="button"
+              data-bs-toggle="collapse" data-bs-target="#mobileMenu"
+              aria-label="Navigation öffnen">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="collapse d-lg-none" id="mobileMenu">
+      <div class="d-flex flex-column gap-1 mt-2 pb-1">
+        <a href="{% url 'home' %}"       class="nav-link-custom"><i class="bi bi-house me-2"></i>Home</a>
+        <a href="{% url 'services' %}"   class="nav-link-custom"><i class="bi bi-tools me-2"></i>Leistungen</a>
+        <a href="{% url 'galerie' %}"    class="nav-link-custom"><i class="bi bi-images me-2"></i>Galerie</a>
+        <a href="{% url 'about' %}"      class="nav-link-custom"><i class="bi bi-people me-2"></i>Über Uns</a>
+        <a href="{% url 'contact' %}"    class="nav-link-custom"><i class="bi bi-geo-alt me-2"></i>Kontakt</a>
+        <hr style="border-color:rgba(255,255,255,.1);margin:.5rem 0;">
+        <a href="{% url 'impressum' %}"  class="nav-link-custom" style="font-size:.78rem;opacity:.6;">Impressum</a>
+        <a href="{% url 'datenschutz' %}" class="nav-link-custom" style="font-size:.78rem;opacity:.6;">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</nav>

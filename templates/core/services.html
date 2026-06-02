@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Leistungen – Flügel Haus & Gebäudeservice{% endblock %}
+{% block meta_desc %}Alle Leistungen von Flügel Haus & Gebäudeservice: Gebäudereinigung, Büroreinigung, Glasreinigung, Gartenpflege, Winterdienst, Grabpflege und mehr.{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container position-relative">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+        <li class="breadcrumb-item active">Leistungen</li>
+      </ol>
+    </nav>
+    <div class="section-label mb-2" style="color:var(--gold-light);">Was wir anbieten</div>
+    <h1>Unsere Leistungen</h1>
+    <p class="mt-3">Alles aus einer Hand – von der Reinigung bis zur Außenanlage.</p>
+  </div>
+</div>
+
+<section style="padding:5rem 0;background:var(--off-white);">
+  <div class="container">
+
+    <!-- REINIGUNG BEREICH -->
+    <div class="mb-5 fade-up">
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <div style="width:3px;height:2.5rem;background:linear-gradient(var(--gold),var(--gold-light));border-radius:3px;"></div>
+        <h2 style="font-size:1.5rem;font-weight:800;color:var(--navy-dark);margin:0;">Reinigungs&shy;leistungen</h2>
+      </div>
+      <div class="row g-4">
+
+        <div class="col-md-6 fade-up stagger-1" id="gebäudereinigung">
+          <div class="service-card h-100">
+            <div class="service-card-number">01</div>
+            <div class="service-icon-wrap"><i class="bi bi-building"></i></div>
+            <h4>Gebäudereinigung</h4>
+            <p>Professionelle Unterhaltsreinigung und Grundreinigung für Wohn- und Gewerbegebäude. Wir reinigen Böden, Sanitäranlagen, Küchen und alle Gemeinschaftsbereiche. Regelmäßig nach Plan oder als einmalige Sonderreinigung – wir sind flexibel.</p>
+            <ul class="check-list mt-3">
+              <li><i class="bi bi-check-circle-fill"></i>Unterhaltsreinigung</li>
+              <li><i class="bi bi-check-circle-fill"></i>Grundreinigung & Intensivreinigung</li>
+              <li><i class="bi bi-check-circle-fill"></i>Sanitär & Küchenbereiche</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 fade-up stagger-2" id="büroreinigung">
+          <div class="service-card h-100">
+            <div class="service-card-number">02</div>
+            <div class="service-icon-wrap"><i class="bi bi-briefcase"></i></div>
+            <h4>Büroreinigung</h4>
+            <p>Ein sauberes Büro steigert die Produktivität und hinterlässt einen professionellen Eindruck bei Kunden und Mitarbeitern. Wir reinigen Ihre Büroräume diskret – morgens, abends oder am Wochenende nach Ihrem Zeitplan.</p>
+            <ul class="check-list mt-3">
+              <li><i class="bi bi-check-circle-fill"></i>Tägliche/wöchentliche Reinigung</li>
+              <li><i class="bi bi-check-circle-fill"></i>Schreibtische & Oberflächen</li>
+              <li><i class="bi bi-check-circle-fill"></i>Sanitär & Pausenräume</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 fade-up stagger-1" id="treppenhausreinigung">
+          <div class="service-card h-100">
+            <div class="service-card-number">03</div>
+            <div class="service-icon-wrap"><i class="bi bi-door-open"></i></div>
+            <h4>Treppenhausreinigung</h4>
+            <p>Das Treppenhaus ist die Visitenkarte eines Gebäudes. Wir halten es sauber, gepflegt und hygienisch – von den Böden über Handläufe bis zu Türgriffen und Fensterbänken im Treppenbereich.</p>
+            <ul class="check-list mt-3">
+              <li><i class="bi bi-check-circle-fill"></i>Böden & Treppenstufen</li>
+              <li><i class="bi bi-check-circle-fill"></i>Handläufe & Geländer</li>
+              <li><i class="bi bi-check-circle-fill"></i>Türen & Briefkästen</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 fade-up stagger-2" id="glasreinigung">
+          <div class="service-card h-100">
+            <div class="service-card-number">04</div>
+            <div class="service-icon-wrap"><i class="bi bi-binoculars"></i></div>
+            <h4>Glasreinigung</h4>
+            <p>Streifenfreie, blitzsaubere Fenster und Glasflächen – für klare Sicht und ein gepflegtes Erscheinungsbild. Wir reinigen alle Glasflächen innen und außen mit professionellem Equipment.</p>
+            <ul class="check-list mt-3">
+              <li><i class="bi bi-check-circle-fill"></i>Fenster innen & außen</li>
+              <li><i class="bi bi-check-circle-fill"></i>Schaufenster & Glasfronten</li>
+              <li><i class="bi bi-check-circle-fill"></i>Wintergärten & Glasdächer</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GARTEN & AUSSEN -->
+    <div class="mb-5 fade-up">
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <div style="width:3px;height:2.5rem;background:linear-gradient(var(--gold),var(--gold-light));border-radius:3px;"></div>
+        <h2 style="font-size:1.5rem;font-weight:800;color:var(--navy-dark);margin:0;">Garten & Außenanlagen</h2>
+      </div>
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4 fade-up stagger-1" id="gartenpflege">
+          <div class="service-card h-100">
+            <div class="service-card-number">05</div>
+            <div class="service-icon-wrap"><i class="bi bi-flower1"></i></div>
+            <h4>Gartenpflege</h4>
+            <p>Rasenmähen, Beetpflege, Bepflanzung und Außenanlagenpflege – wir kümmern uns um Ihren Garten während der gesamten Saison.</p>
+            <ul class="check-list mt-3">
+              <li><i class="bi bi-check-circle-fill"></i>Rasenmähen & Kantenstechen</li>
+              <li><i class="bi bi-check-circle-fill"></i>Beetpflege & Bepflanzung</li>
+              <li><i class="bi bi-check-circle-fill"></i>Laubentfernung</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 fade-up stagger-2" id="heckenschnitt">
+          <div class="service-card h-100">
+            <div class="service-card-number">06</div>
+            <div class="service-icon-wrap"><i class="bi bi-scissors"></i></div>
+            <h4>Heckenschnitt</h4>
+            <p>Formschnitt und Pflege von Hecken, Sträuchern und Gehölzen. Wir arbeiten präzise und entsorgen das Schnittgut fachgerecht.</p>
+            <ul class="check-list mt-3">
+              <li><i class="bi bi-check-circle-fill"></i>Formschnitt & Rückschnitt</li>
+              <li><i class="bi bi-check-circle-fill"></i>Strauch- & Heckenpflege</li>
+              <li><i class="bi bi-check-circle-fill"></i>Schnittgutentsorgung</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 fade-up stagger-3" id="gala-bau">
+          <div class="service-card h-100">
+            <div class="service-card-number">10</div>
+            <div class="service-icon-wrap"><i class="bi bi-bricks"></i></div>
+            <h4>Gala-Bau</h4>
+            <p>Gestaltung und Bau von Außenanlagen: Terrassen, Wege, Pflasterarbeiten und Bepflanzungskonzepte für eine attraktive Umgebung.</p>
+            <ul class="check-list mt-3">
+              <li><i class="bi bi-check-circle-fill"></i>Terrassenbau & Pflasterung</li>
+              <li><i class="bi bi-check-circle-fill"></i>Weggestaltung</li>
+              <li><i class="bi bi-check-circle-fill"></i>Bepflanzungskonzepte</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- STEINREINIGUNG -->
+    <div class="mb-5 fade-up">
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <div style="width:3px;height:2.5rem;background:linear-gradient(var(--gold),var(--gold-light));border-radius:3px;"></div>
+        <h2 style="font-size:1.5rem;font-weight:800;color:var(--navy-dark);margin:0;">Steinreinigung</h2>
+      </div>
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4 fade-up stagger-1" id="steinreinigung">
+          <div class="service-card h-100">
+            <div class="service-card-number">11</div>
+            <div class="service-icon-wrap"><i class="bi bi-moisture"></i></div>
+            <h4>Pflasterstein- &amp; Terrassenreinigung</h4>
+            <p>Moos, Algen und Verschmutzungen auf Pflaster, Terrassen und Einfahrten professionell entfernt – materialschonend und dauerhaft.</p>
+            <ul class="check-list mt-3">
+              <li><i class="bi bi-check-circle-fill"></i>Pflastersteine &amp; Terrassenplatten</li>
+              <li><i class="bi bi-check-circle-fill"></i>Einfahrten &amp; Gehwege</li>
+              <li><i class="bi bi-check-circle-fill"></i>Moos- &amp; Algenentfernung</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 fade-up stagger-2" id="fassadenreinigung">
+          <div class="service-card h-100">
+            <div class="service-card-number">12</div>
+            <div class="service-icon-wrap"><i class="bi bi-house"></i></div>
+            <h4>Fassadenreinigung</h4>
+            <p>Klinker, Naturstein und verputzte Fassaden sauber und gepflegt – für ein frisches Erscheinungsbild der gesamten Immobilie.</p>
+            <ul class="check-list mt-3">
+              <li><i class="bi bi-check-circle-fill"></i>Klinker &amp; Natursteinfassaden</li>
+              <li><i class="bi bi-check-circle-fill"></i>Graffiti-Entfernung</li>
+              <li><i class="bi bi-check-circle-fill"></i>Imprägnierung auf Wunsch</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 fade-up stagger-3">
+          <div class="service-card h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="service-card-number">→</div>
+              <div class="service-icon-wrap"><i class="bi bi-arrow-right-circle"></i></div>
+              <h4>Alle Details ansehen</h4>
+              <p>Erfahren Sie mehr über unsere Steinreinigungs-Leistungen, Methoden und Preise auf der Detailseite.</p>
+            </div>
+            <a href="{% url 'service_detail' 'steinreinigung' %}" class="btn-gold mt-3" style="justify-content:center;">
+              <i class="bi bi-arrow-right"></i> Zur Steinreinigung
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SONDER-LEISTUNGEN -->
+    <div class="mb-5 fade-up">
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <div style="width:3px;height:2.5rem;background:linear-gradient(var(--gold),var(--gold-light));border-radius:3px;"></div>
+        <h2 style="font-size:1.5rem;font-weight:800;color:var(--navy-dark);margin:0;">Weitere Leistungen</h2>
+      </div>
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4 fade-up stagger-1" id="winterdienst">
+          <div class="service-card h-100">
+            <div class="service-card-number">07</div>
+            <div class="service-icon-wrap"><i class="bi bi-snow2"></i></div>
+            <h4>Winterdienst</h4>
+            <p>Zuverlässiger Winterdienst für Gehwege, Parkplätze und Einfahrten. Wir sichern Ihre Flächen bei Schnee und Eis – pünktlich jeden Morgen.</p>
+            <ul class="check-list mt-3">
+              <li><i class="bi bi-check-circle-fill"></i>Schneeräumung</li>
+              <li><i class="bi bi-check-circle-fill"></i>Streugut & Enteisen</li>
+              <li><i class="bi bi-check-circle-fill"></i>Saisonvertrag möglich</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 fade-up stagger-2" id="grabpflege">
+          <div class="service-card h-100">
+            <div class="service-card-number">08</div>
+            <div class="service-icon-wrap"><i class="bi bi-heart"></i></div>
+            <h4>Grabpflege</h4>
+            <p>Liebevolle und würdevolle Pflege von Grabstätten – ganzjährig oder saisonal. Bepflanzung, Reinigung und saisonale Dekoration nach Ihren Wünschen.</p>
+            <ul class="check-list mt-3">
+              <li><i class="bi bi-check-circle-fill"></i>Bepflanzung & Pflege</li>
+              <li><i class="bi bi-check-circle-fill"></i>Reinigung & Grabpflege</li>
+              <li><i class="bi bi-check-circle-fill"></i>Saisonale Dekoration</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 fade-up stagger-3" id="kleinreparaturen">
+          <div class="service-card h-100">
+            <div class="service-card-number">09</div>
+            <div class="service-icon-wrap"><i class="bi bi-wrench-adjustable"></i></div>
+            <h4>Kleinreparaturen</h4>
+            <p>Kleine Handwerksarbeiten rund ums Haus – schnell und unkompliziert. Kein Auftrag ist zu klein. Wir kommen, reparieren und hinterlassen Ordnung.</p>
+            <ul class="check-list mt-3">
+              <li><i class="bi bi-check-circle-fill"></i>Montage- & Reparaturarbeiten</li>
+              <li><i class="bi bi-check-circle-fill"></i>Kleine Handwerksarbeiten</li>
+              <li><i class="bi bi-check-circle-fill"></i>Auf Anfrage & Bestellung</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="cta-section fade-up" style="border-radius:var(--radius-xl);padding:4rem 3rem;text-align:center;">
+      <div class="position-relative">
+        <div class="section-label mb-3" style="color:var(--gold-light);">Ihr Anliegen dabei?</div>
+        <h3 style="color:var(--white);font-size:1.8rem;font-weight:800;">Individuelles Angebot anfordern</h3>
+        <p style="color:rgba(255,255,255,.65);margin:1rem 0 2rem;max-width:500px;margin-left:auto;margin-right:auto;">
+          Nicht sicher, was genau Sie benötigen? Kein Problem – wir beraten Sie kostenlos
+          und erstellen ein maßgeschneidertes Angebot.
+        </p>
+        <a href="{% url 'contact' %}" class="btn-gold" style="font-size:1rem;padding:1rem 2.5rem;">
+          <i class="bi bi-envelope-fill"></i>
+          Jetzt kostenlos anfragen
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
