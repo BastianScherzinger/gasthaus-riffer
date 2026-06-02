@@ -4,12 +4,17 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config("SECRET_KEY", default="dev-secret-change-me")
-DEBUG      = config("DEBUG", default=False, cast=bool)
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="*",
-    cast=lambda v: [s.strip() for s in v.split(",")])
-CSRF_TRUSTED_ORIGINS = config("CSRF_TRUSTED_ORIGINS", default="",
-    cast=lambda v: [s.strip() for s in v.split(",") if s.strip()])
+SECRET_KEY = config("SECRET_KEY", default="dev-key-change-in-production")
+DEBUG = config("DEBUG", default=False, cast=bool)
+
+# Railway nutzt interne IPs für Health Checks → * erlaubt alles
+# Railway selbst übernimmt Host-Validierung am Edge
+ALLOWED_HOSTS = ["*"]
+
+CSRF_TRUSTED_ORIGINS = config(
+    "CSRF_TRUSTED_ORIGINS", default="",
+    cast=lambda v: [s.strip() for s in v.split(",") if s.strip()]
+)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -69,3 +74,7 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 SITE_NAME = "Gasthaus Riffer"
+EMAIL_BACKEND = config(
+    "EMAIL_BACKEND",
+    default="django.core.mail.backends.console.EmailBackend"
+)
